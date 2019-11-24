@@ -1,1 +1,28 @@
-<p>projeto-lista works!</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Listagem</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>DataInicio</th>
+            <th>DataFim</th>
+            <th>Valor</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let projeto of projetos | async">
+            <td>{{projeto.nome}}</td>
+            <td>{{projeto.dataInicio}}</td>
+            <td>{{projeto.dataFim}}</td>
+            <td>{{projeto.valor}}</td>
+            <td><button (click)="deleteProject(projeto.id)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Project } from '../project';
+import { ProjectService } from '../project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projeto-lista',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjetoListaComponent implements OnInit {
 
-  constructor() { }
+  projetos: Observable<Project[]>;
+
+  constructor(private service: ProjectService,
+    private router: Router) { }
 
   ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.projetos = this.service.getProjectList();
+  }
+
+  deleteProject(id: number) {
+    this.service.delete(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
   }
 
 }
