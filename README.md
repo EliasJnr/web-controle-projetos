@@ -1,8 +1,6 @@
 #WebControleProjetos
 
 Tecnologias utilizadas:
-
-FRONT:
 - Angular 8
 - Typescript
 - NPM
