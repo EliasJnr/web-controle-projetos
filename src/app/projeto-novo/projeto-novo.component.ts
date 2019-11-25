@@ -28,9 +28,10 @@ export class ProjetoNovoComponent implements OnInit {
 
   save() {
     this.service.create(this.projeto)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => {console.log(data);
+      this.gotoList();
+      }, error => console.log(error));
     this.projeto = new Project();
-    this.gotoList();
   }
 
   onSubmit() {

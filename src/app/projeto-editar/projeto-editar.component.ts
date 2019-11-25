@@ -29,9 +29,11 @@ export class ProjetoEditarComponent implements OnInit {
 
   updateProject() {
     this.service.update(this.id, this.projeto)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => {console.log(data);
+        this.gotoList();                      
+      }, error => console.log(error));
     this.projeto = new Project();
-    this.gotoList();
+    
   }
 
   onSubmit() {
