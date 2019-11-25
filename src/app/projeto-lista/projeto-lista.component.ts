@@ -34,4 +34,8 @@ export class ProjetoListaComponent implements OnInit {
         error => console.log(error));
   }
 
+  update(id: number){
+    this.router.navigate(['update', id]);
+  }
+
 }

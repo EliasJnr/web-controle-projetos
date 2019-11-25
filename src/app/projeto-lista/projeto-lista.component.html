@@ -19,7 +19,9 @@
             <td>{{projeto.dataInicio}}</td>
             <td>{{projeto.dataFim}}</td>
             <td>{{projeto.valor}}</td>
-            <td><button (click)="deleteProject(projeto.id)" class="btn btn-danger">Delete</button>
+            <td>
+                <button (click)="update(projeto.id)" class="btn btn-info" style="margin-left: 10px">Editar</button></td>
+                <td><button (click)="deleteProject(projeto.id)" class="btn btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>
